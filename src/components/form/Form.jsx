@@ -3,6 +3,13 @@ import './Form.css';
 import profile_icon from '../../assets/profile_icon.png';
 import close_icon from '../../assets/close_icon.png';
 import { Container, Grid, TextField, Button } from "@mui/material";
+import contactService from '../../api.js';
+
+const refreshPageWithDelay = () => {
+  setTimeout(() => {
+      window.location.reload();
+  }, 750); // 1000ms = 1 second
+};
 
 // eslint-disable-next-line react/prop-types
 const FormOverlay = ({ onClose }) => {
@@ -18,13 +25,11 @@ const FormOverlay = ({ onClose }) => {
 
   const [errors, setErrors] = useState({});
 
-  // Update form data on input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Form validation
   const validateForm = () => {
     const newErrors = {};
     if (!formData.firstname.trim()) newErrors.firstname = "First Name is required";
@@ -32,21 +37,49 @@ const FormOverlay = ({ onClose }) => {
     if (!formData.email.trim()) newErrors.email = "Email is required";
     if (!formData.phone.trim()) newErrors.phone = "Phone Number is required";
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // True if no errors
+    setErrors(newErrors); 
+    return Object.keys(newErrors).length === 0;
   };
+  
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
+    //onClose();
     e.preventDefault();
 
-    // Validate form before submitting
     if (!validateForm()) {
       console.log("Validation failed");
       return;
     }
 
-    console.log('Form submitted', formData);
-    onClose(); // Close the overlay
+    try {
+      const contactData = {
+        firstName: formData.firstname,
+        lastName: formData.lastname,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        jobTitle: formData.jobTitle,
+        notes: formData.notes,
+      };
+
+      const response = await contactService.createContact(contactData);
+      console.log("Contact created successfully:", response);
+
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        phone: '',
+        company: '',
+        jobTitle: '',
+        notes: '',
+      });
+
+      onClose();
+      refreshPageWithDelay();
+    } catch (error) {
+      console.error("Error creating contact:", error);
+    }
   };
 
   return (
@@ -71,7 +104,6 @@ const FormOverlay = ({ onClose }) => {
           <div className="input-container">
             <Container maxWidth="sm">
               <Grid container spacing={2}>
-                {/* First Name Field */}
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -85,8 +117,6 @@ const FormOverlay = ({ onClose }) => {
                     InputProps={{ style: { height: '45px' } }}
                   />
                 </Grid>
-
-                {/* Last Name Field */}
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -100,8 +130,6 @@ const FormOverlay = ({ onClose }) => {
                     InputProps={{ style: { height: '45px' } }}
                   />
                 </Grid>
-
-                {/* Email Field */}
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -116,8 +144,6 @@ const FormOverlay = ({ onClose }) => {
                     InputProps={{ style: { height: '45px' } }}
                   />
                 </Grid>
-
-                {/* Phone Number Field */}
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -132,8 +158,6 @@ const FormOverlay = ({ onClose }) => {
                     InputProps={{ style: { height: '45px' } }}
                   />
                 </Grid>
-
-                {/* Company Field */}
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -144,8 +168,6 @@ const FormOverlay = ({ onClose }) => {
                     InputProps={{ style: { height: '45px' } }}
                   />
                 </Grid>
-
-                {/* Job Title Field */}
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -156,8 +178,6 @@ const FormOverlay = ({ onClose }) => {
                     InputProps={{ style: { height: '45px' } }}
                   />
                 </Grid>
-
-                {/* Notes Field */}
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -167,7 +187,7 @@ const FormOverlay = ({ onClose }) => {
                     onChange={handleInputChange}
                     multiline
                     rows={4}
-                    InputProps={{ style: { height: '100px' } }}
+                    InputProps={{ style: { height: '100px'} }}
                   />
                 </Grid>
               </Grid>
