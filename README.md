@@ -1,4 +1,3 @@
-```markdown
 # Contact Management
 
 A simple contact management app built using React and Vite.
@@ -12,6 +11,7 @@ First, clone the repository to your local machine:
 ```bash
 git clone https://github.com/rajathshttgr/contact-management.git
 ```
+
 
 ### 2. Navigate into the Project Directory
 
@@ -39,12 +39,3 @@ npm run dev
 
 Open your browser and visit `http://localhost:5173/` to view the app.
 
-### 5. Build the App for Production
-
-To build the app for production, run:
-
-```bash
-npm run build
-```
-
-This will generate a `dist` folder with the production-ready build
