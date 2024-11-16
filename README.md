@@ -1,8 +1,50 @@
-# React + Vite
+```markdown
+# Contact Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple contact management app built using React and Vite.
 
-Currently, two official plugins are available:
+## Steps to Clone, Install, and Run the App
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Clone the Repository
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/rajathshttgr/contact-management.git
+```
+
+### 2. Navigate into the Project Directory
+
+Change into the project directory:
+
+```bash
+cd contact-management
+```
+
+### 3. Install Dependencies
+
+Install the required dependencies by running the following command:
+
+```bash
+npm install
+```
+
+### 4. Run the Application
+
+Once the dependencies are installed, you can start the development server:
+
+```bash
+npm run dev
+```
+
+Open your browser and visit `http://localhost:5173/` to view the app.
+
+### 5. Build the App for Production
+
+To build the app for production, run:
+
+```bash
+npm run build
+```
+
+This will generate a `dist` folder with the production-ready build
