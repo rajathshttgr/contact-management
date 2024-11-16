@@ -1,0 +1,80 @@
+.navBar {
+    background-color: #fff;
+    width: 100%;
+    height: 10%; /* Adjust as necessary */
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-right: 2px solid #f5f5f5;
+    border-bottom: 2px solid #f5f5f5;
+    padding-right: 1rem;
+}
+
+.toggle-theme{
+    height: 30px;
+    width: 30px;
+    margin-left: 7.0rem;
+    cursor: pointer;
+}
+
+.logo-icon{
+    height: 30px;
+    width: 100px;
+}
+
+.profile {
+    background-color: #fff;
+    width: 95%;
+    height: 10%; /* Adjust as necessary */
+    border-radius: 5px;
+    margin-top: 0.5rem; /* Pushes .profile to the bottom */
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.profile-border{
+    border-top: 2px solid #f5f5f5;
+    border-right: 2px solid #f5f5f5;
+}
+
+.profile-icon{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.arrow-icon{
+    height: 20px;
+    width: 20px;
+    margin-left: 2.5rem;
+    cursor: pointer;
+}
+
+.textInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem; /* Space between icon and text */
+}
+
+.name {
+    font-weight: bold;
+    color: #000; /* Black or preferred text color */
+    margin: 0; /* Remove default margin */
+}
+
+.userID {
+    color: #6c757d; /* Gray-scale color */
+    font-size: 0.8rem; /* Optional smaller font size */
+    margin: 0; /* Remove default margin */
+}
+
+.taskPanel{
+    background-color: #fff;
+    height: 77%;
+    margin-left: 0.5rem;
+    border-right: 2px solid #f5f5f5;
+    padding-right: 1rem;
+}

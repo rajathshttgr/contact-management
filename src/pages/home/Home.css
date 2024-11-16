@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 18%;
+    background-color:#fff; /* Example background color */
+    height: 100%;
+    margin: 0; /* Reset margin to align with taskbar */
+    padding: 0rem; /* Optional padding for content */
+  }
+  
+  .taskbar {
+    width: 82%;
+    background-color: #ffffff; /* Example background color */
+    height: 100%;
+    margin: 0; /* Reset margin to align with sidebar */
+  }
+  

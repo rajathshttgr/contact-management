@@ -1,0 +1,48 @@
+.navBar {
+    background-color: #fff;
+    width: 100%;
+    height: 10%; /* Adjust as necessary */
+    display: flex; /* Enables Flexbox layout */
+    align-items: center; /* Vertically aligns items in the center */
+    justify-content: space-between; /* Positions items at opposite ends */
+    border-bottom: 2px solid #f5f5f5;
+    padding: 0 1rem; /* Adds padding for better spacing */
+}
+
+.titlebar {
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    color: #000;
+}
+
+.share {
+    display: flex; /* Groups sharelink and more together */
+    align-items: center; /* Aligns items vertically */
+}
+
+.sharelink button {
+    padding: 8px 12px;
+    font-size: 1rem;
+    background-color:#85acf5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sharelink button:hover {
+    background-color:  #5b94fe;
+}
+
+.more img {
+    width: 24px; /* Adjust image size */
+    height: 24px;
+    margin-left: 10px; /* Space between button and image */
+    cursor: pointer;
+}
+
+
+.data-table{
+   margin: 1rem;
+  }
+  

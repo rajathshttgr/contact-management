@@ -1,0 +1,56 @@
+.search {
+    margin: 0.3rem;
+    width: 90%;
+    position: relative; /* Ensure relative positioning for the container */
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-icon {
+    position: absolute; /* Position the icon inside the input */
+    left: 10px; /* Adjust spacing from the left edge */
+    color: #888; /* Optional: Icon color */
+    pointer-events: none; /* Prevent icon from blocking input focus */
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px 10px 10px 35px; /* Add left padding to avoid overlap with the icon */
+    border: none;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    flex: 1;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+  
+
+
+button{
+    text-align: left;
+    margin: 0.3rem;
+    width: 90%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #85acf5;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+button:hover{
+    background-color: #5b94fe;
+}
+
+
