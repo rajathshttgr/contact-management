@@ -41,8 +41,29 @@
     cursor: pointer;
 }
 
+.delete{
+    margin: 15px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.edit{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 
 .data-table{
    margin: 1rem;
+  }
+
+.update {
+    display: flex; 
+    align-items: center;
+    display: none;
+}
+  
+.show {
+    display: contents;
   }
   

@@ -1,7 +1,7 @@
 //import React from 'react'
 import './Home.css';
 import Sidebar from "../../Segments/sidebar/Sidebar";
-import Taskbar from "../../Segments/taskbar/Taskbar";
+import Taskbar from "../../Segments/taskbar/Taskbar"; 
 
 const Home = () => {
   return (

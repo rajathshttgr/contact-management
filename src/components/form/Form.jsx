@@ -8,7 +8,7 @@ import contactService from '../../api.js';
 const refreshPageWithDelay = () => {
   setTimeout(() => {
       window.location.reload();
-  }, 750); // 1000ms = 1 second
+  }, 100); // 1000ms = 1 second
 };
 
 // eslint-disable-next-line react/prop-types
@@ -79,6 +79,8 @@ const FormOverlay = ({ onClose }) => {
       refreshPageWithDelay();
     } catch (error) {
       console.error("Error creating contact:", error);
+      alert("contact already exists");
+      refreshPageWithDelay()
     }
   };
 

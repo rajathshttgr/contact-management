@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import contactService from '../../api.js'; // Adjust the path as needed
+import contactService from '../../api.js';
 
 const theme = createTheme({
   components: {
@@ -36,26 +36,26 @@ const columns = [
   { field: 'jobTitle', headerName: 'Job Title', width: 160 },
 ];
 
-export default function DataTable() {
+// eslint-disable-next-line react/prop-types
+const DataTable = ({ onSelectContact }) => {
   const [rows, setRows] = useState([]);
-  const [loading, setLoading] = useState(true); // For loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchContacts = async () => {
       try {
         const data = await contactService.getContacts();
-        const formattedData = data
-          .map((contact, index) => ({
-            id: data.length - index, // Reverse order ID
-            firstName: contact.firstName,
-            lastName: contact.lastName,
-            email: contact.email,
-            phone: contact.phone, // Ensure correct property
-            company: contact.company,
-            jobTitle: contact.jobTitle,
-          }))
-          .reverse(); // Reverse the order of the rows
-        setRows(formattedData);
+        const formattedData = data.map((contact, index) => ({
+          id: data.length - index,
+          firstName: contact.firstName,
+          lastName: contact.lastName,
+          email: contact.email,
+          phone: contact.phone,
+          company: contact.company,
+          jobTitle: contact.jobTitle,
+          idx: contact._id,
+        }));
+        setRows(formattedData.reverse());
       } catch (error) {
         console.error('Error fetching contacts:', error);
       } finally {
@@ -70,13 +70,14 @@ export default function DataTable() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper sx={{ height: 622, width: '100%', p: 2 }}>
+      <Paper sx={{ height: 640, width: '100%', p: 2 }}>
         <DataGrid
           rows={rows}
           columns={columns}
-          loading={loading} // Show loader while fetching data
+          loading={loading}
           initialState={{ pagination: { paginationModel } }}
           pageSizeOptions={[5, 10]}
+          onRowClick={(params) => onSelectContact(params.row)} // Pass selected row to Taskbar
           checkboxSelection
           sx={{
             border: 0,
@@ -85,4 +86,6 @@ export default function DataTable() {
       </Paper>
     </ThemeProvider>
   );
-}
+};
+
+export default DataTable;

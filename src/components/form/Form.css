@@ -14,6 +14,7 @@
   
   /* Overlay content (form container) */
   .overlay-content {
+    overflow-x: auto;
     background-color: white;
     width: 400px;
     text-align: center;

@@ -30,7 +30,7 @@ const TaskPanel = () => {
           <AddBoxIcon style={{ marginRight: '8px' }} /> 
           Add Contact
         </button>
-        {isOverlayVisible && <Form onClose={handleCloseOverlay} />}
+        {isOverlayVisible && <Form onClose={handleCloseOverlay} name="Create New Contact" />}
       </div>
       
      <div className="starred">
